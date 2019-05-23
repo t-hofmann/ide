@@ -1,7 +1,8 @@
+# Usage
 $> cd vscode
 
-# first time:
+# First Time
 $> docker-compose up code
 
-# subsequent:
+# Subsequent
 $> docker-compose restart code
