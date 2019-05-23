@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  code:
+    build:
+      context: ./code
+
+    environment:
+      - DISPLAY=${DISPLAY:?error - "DISPLAY" environment variable not set} # make sure this is set
+      # - DBUS_SESSION_BUS_ADDRESS
+      - GID=${GID:?error - environment-variable GID not set - maybe add "export GID=$(id -g)" to your .bashrc}
+      - UID=${UID:?error - environment-variable UID not set - maybe add "export UID" to your .bashrc}
+      - USER=${USER:?error - environment-variable USER not set - maybe add ""}
+      - GROUP=${GROUP:?error - environment-variable GROUP not set - maybe add "export GROUP=$(id -gn)" to your .bashrc}
+
+    network_mode: "host"
+
+    volumes:
+      - ~/.Xauthority:/home/$USER/.Xauthority
+
+      - ./code/user_data_dir:/user_data_dir:rw
+      - ./code/project:/project:rw
+
+    command: /start.sh
