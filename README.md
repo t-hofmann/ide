@@ -1,7 +1,7 @@
 $> cd vscode
 
 # first time:
-$> docker-compose up --build code
+$> docker-compose up code
 
 # subsequent:
-$> docker-compose restart
+$> docker-compose restart code
