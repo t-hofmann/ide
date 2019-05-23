@@ -3,7 +3,7 @@ set -e
 
 function handle_signal() {
 	signal=$1
-	kill -$signal -1    # -1   - kill all processes your can kill
+	kill -$signal -1    # -1   - kill all processes you can kill
 	exit 0
 }
 
